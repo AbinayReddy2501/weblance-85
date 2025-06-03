@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold font-poppins text-primary-400">Deneb</h3>
+            <h3 className="text-2xl font-bold font-poppins text-primary-400">Weblance</h3>
             <p className="text-gray-300 leading-relaxed">
               We create amazing digital experiences that help businesses grow and succeed in the modern world.
             </p>
@@ -77,7 +77,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 Deneb. All rights reserved. Built with modern technology and passion.
+            © 2024 Weblance. All rights reserved. Built with modern technology and passion.
           </p>
         </div>
       </div>

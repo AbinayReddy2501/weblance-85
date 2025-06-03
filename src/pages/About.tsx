@@ -8,27 +8,23 @@ import { Link } from 'react-router-dom';
 const About = () => {
   const team = [
     {
-      name: 'Alex Johnson',
+      name: 'Jakka Teja',
       role: 'CEO & Founder',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
       bio: 'With over 10 years of experience in digital strategy and business development.'
     },
     {
-      name: 'Sarah Chen',
+      name: 'Kota Harsha',
       role: 'Lead Designer',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face',
       bio: 'Creative visionary with expertise in user experience and interface design.'
     },
     {
-      name: 'Michael Rodriguez',
+      name: 'Abinay Reddy',
       role: 'Technical Director',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
       bio: 'Full-stack developer passionate about scalable and efficient solutions.'
     },
     {
-      name: 'Emily Davis',
+      name: 'Anish',
       role: 'Project Manager',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face',
       bio: 'Ensuring projects are delivered on time and exceed client expectations.'
     }
   ];
@@ -41,7 +37,7 @@ const About = () => {
       <section className="pt-24 pb-20 bg-gradient-to-br from-primary-600 to-primary-800">
         <div className="container mx-auto px-4">
           <div className="text-center text-white max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-5xl font-bold font-poppins mb-6">About Deneb</h1>
+            <h1 className="text-5xl font-bold font-poppins mb-6">About Weblance</h1>
             <p className="text-xl text-primary-100 leading-relaxed">
               We're a passionate team of designers, developers, and strategists dedicated to creating exceptional digital experiences that drive business growth and success.
             </p>
@@ -56,7 +52,7 @@ const About = () => {
             <div className="space-y-6 animate-slide-in-left">
               <h2 className="text-4xl font-bold font-poppins text-gray-900">Our Story</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Founded in 2019, Deneb started with a simple mission: to help businesses succeed in the digital world through innovative, high-quality solutions. What began as a small team of passionate creators has grown into a full-service digital agency.
+                Founded in 2019, Weblance started with a simple mission: to help businesses succeed in the digital world through innovative, high-quality solutions. What began as a small team of passionate creators has grown into a full-service digital agency.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 We believe that great digital experiences are born from the perfect blend of creativity, technology, and strategy. Every project we undertake is an opportunity to push boundaries and create something truly exceptional.
@@ -142,18 +138,18 @@ const About = () => {
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl font-bold font-poppins text-gray-900 mb-4">Meet Our Team</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Get to know the talented individuals who make the magic happen at Deneb.
+              Get to know the talented individuals who make the magic happen at Weblance.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <div key={index} className="text-center space-y-4 animate-scale-in" style={{ animationDelay: `${index * 100}ms` }}>
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-48 h-48 rounded-full mx-auto object-cover shadow-lg"
-                />
+                <div className="w-48 h-48 rounded-full mx-auto bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center shadow-lg">
+                  <div className="text-white text-4xl font-bold">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900">{member.name}</h3>
                   <p className="text-primary-600 font-medium">{member.role}</p>
