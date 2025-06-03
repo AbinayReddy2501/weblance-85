@@ -18,23 +18,48 @@ const Contact = () => {
     budget: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      service: '',
-      budget: '',
-      message: ''
-    });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mqazblzg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for contacting Weblance. We'll get back to you within 24 hours.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: '',
+          budget: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -52,9 +77,9 @@ const Contact = () => {
       <section className="pt-24 pb-20 bg-gradient-to-br from-primary-600 to-primary-800">
         <div className="container mx-auto px-4">
           <div className="text-center text-white max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-5xl font-bold font-poppins mb-6">Contact Our Freelance Team</h1>
+            <h1 className="text-5xl font-bold font-poppins mb-6">Contact Weblance</h1>
             <p className="text-xl text-primary-100 leading-relaxed">
-              Ready to start your project? Get in touch with skilled freelancers in Hyderabad and get a free quote today.
+              Ready to transform your digital presence? Get in touch with our team of experts and let's discuss your project requirements.
             </p>
           </div>
         </div>
@@ -68,7 +93,7 @@ const Contact = () => {
               <div className="animate-slide-in-left">
                 <h2 className="text-3xl font-bold font-poppins text-gray-900 mb-6">Get In Touch</h2>
                 <p className="text-lg text-gray-600 mb-8">
-                  Connect with Hyderabad's top freelancers. We're here to help you with all your digital needs.
+                  Connect with Weblance's professional team. We're here to help you achieve your digital goals with innovative solutions.
                 </p>
               </div>
 
@@ -84,7 +109,7 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600 mb-2">Send us an email anytime</p>
-                    <p className="text-primary-600 font-semibold">hello@hydfreelance.com</p>
+                    <p className="text-primary-600 font-semibold">hello@weblance.in</p>
                   </CardContent>
                 </Card>
 
@@ -221,10 +246,10 @@ const Contact = () => {
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600"
                         >
                           <option value="">Select budget range</option>
-                          <option value="under-25k">Under ₹25,000</option>
-                          <option value="25k-50k">₹25,000 - ₹50,000</option>
+                          <option value="under-50k">Under ₹50,000</option>
                           <option value="50k-1l">₹50,000 - ₹1,00,000</option>
-                          <option value="1l-plus">₹1,00,000+</option>
+                          <option value="1l-3l">₹1,00,000 - ₹3,00,000</option>
+                          <option value="3l-plus">₹3,00,000+</option>
                         </select>
                       </div>
                     </div>
@@ -244,8 +269,13 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full bg-primary-600 hover:bg-primary-700" size="lg">
-                      Send Message
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-primary-600 hover:bg-primary-700" 
+                      size="lg"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                   </form>
                 </CardContent>

@@ -18,23 +18,52 @@ const HireUs = () => {
     budget: '',
     description: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Application Submitted!",
-      description: "Thank you for your interest. We'll review your project and get back to you within 24 hours.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      projectType: '',
-      timeline: '',
-      budget: '',
-      description: ''
-    });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mqazblzg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: 'New Hire Request from Weblance',
+          _replyto: formData.email
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Application Submitted Successfully!",
+          description: "Thank you for choosing Weblance. We'll review your project and get back to you within 24 hours.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          projectType: '',
+          timeline: '',
+          budget: '',
+          description: ''
+        });
+      } else {
+        throw new Error('Failed to submit application');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to submit application. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -47,31 +76,31 @@ const HireUs = () => {
   const services = [
     {
       title: 'Full-Stack Development',
-      description: 'Complete web application development from frontend to backend',
-      features: ['Custom Web Applications', 'API Development', 'Database Design', 'Cloud Deployment'],
+      description: 'Complete web application development with modern technologies',
+      features: ['React/Next.js Applications', 'Node.js Backend', 'Database Design', 'Cloud Deployment'],
       timeline: '8-16 weeks',
-      startingPrice: '$15,000'
+      startingPrice: '₹2,50,000'
     },
     {
       title: 'Mobile App Development',
       description: 'Native and cross-platform mobile applications',
-      features: ['iOS & Android Apps', 'Cross-platform Solutions', 'App Store Deployment', 'Maintenance & Updates'],
+      features: ['iOS & Android Apps', 'React Native/Flutter', 'App Store Deployment', 'Maintenance & Support'],
       timeline: '10-20 weeks',
-      startingPrice: '$20,000'
+      startingPrice: '₹3,00,000'
     },
     {
       title: 'UI/UX Design',
       description: 'Complete design solutions from research to implementation',
-      features: ['User Research', 'Wireframing & Prototyping', 'Visual Design', 'Design Systems'],
+      features: ['User Research & Testing', 'Wireframing & Prototyping', 'Visual Design Systems', 'Brand Identity'],
       timeline: '4-8 weeks',
-      startingPrice: '$8,000'
+      startingPrice: '₹1,50,000'
     },
     {
       title: 'Digital Marketing',
       description: 'Comprehensive digital marketing strategies and execution',
-      features: ['SEO Optimization', 'Social Media Marketing', 'Content Strategy', 'Analytics & Reporting'],
+      features: ['SEO & Content Strategy', 'Social Media Marketing', 'Paid Advertising', 'Analytics & Reporting'],
       timeline: 'Ongoing',
-      startingPrice: '$3,000/month'
+      startingPrice: '₹50,000/month'
     }
   ];
 
@@ -83,9 +112,9 @@ const HireUs = () => {
       <section className="pt-24 pb-20 bg-gradient-to-br from-primary-600 to-primary-800">
         <div className="container mx-auto px-4">
           <div className="text-center text-white max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-5xl font-bold font-poppins mb-6">Hire Our Team</h1>
+            <h1 className="text-5xl font-bold font-poppins mb-6">Hire Weblance Team</h1>
             <p className="text-xl text-primary-100 leading-relaxed">
-              Ready to bring your vision to life? Our expert team is here to help you create exceptional digital experiences that drive results.
+              Ready to bring your vision to life? Our expert team is here to help you create exceptional digital experiences that drive real business results.
             </p>
           </div>
         </div>
@@ -96,10 +125,10 @@ const HireUs = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl font-bold font-poppins text-gray-900 mb-4">
-              Our Service Packages
+              Our Professional Services
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Choose from our comprehensive service packages designed to meet your specific needs and budget.
+              Choose from our comprehensive service packages designed to meet your specific business needs and budget requirements.
             </p>
           </div>
 
@@ -143,13 +172,13 @@ const HireUs = () => {
                 Let's Start Your Project
               </h2>
               <p className="text-lg text-gray-600">
-                Tell us about your project and we'll provide you with a detailed proposal and timeline.
+                Tell us about your project requirements and we'll provide you with a detailed proposal, timeline, and transparent pricing.
               </p>
             </div>
 
             <Card className="shadow-lg animate-scale-in">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-gray-900">Project Details</CardTitle>
+                <CardTitle className="text-2xl font-bold text-gray-900">Project Requirements</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -250,11 +279,11 @@ const HireUs = () => {
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600"
                       >
                         <option value="">Select budget</option>
-                        <option value="under-10k">Under $10,000</option>
-                        <option value="10k-25k">$10,000 - $25,000</option>
-                        <option value="25k-50k">$25,000 - $50,000</option>
-                        <option value="50k-100k">$50,000 - $100,000</option>
-                        <option value="100k-plus">$100,000+</option>
+                        <option value="under-1l">Under ₹1,00,000</option>
+                        <option value="1l-3l">₹1,00,000 - ₹3,00,000</option>
+                        <option value="3l-5l">₹3,00,000 - ₹5,00,000</option>
+                        <option value="5l-10l">₹5,00,000 - ₹10,00,000</option>
+                        <option value="10l-plus">₹10,00,000+</option>
                       </select>
                     </div>
                   </div>
@@ -270,7 +299,7 @@ const HireUs = () => {
                       rows={6}
                       value={formData.description}
                       onChange={handleChange}
-                      placeholder="Please describe your project in detail including goals, features, target audience, and any specific requirements..."
+                      placeholder="Please describe your project in detail including goals, features, target audience, technical requirements, and any specific preferences..."
                     />
                   </div>
 
@@ -278,14 +307,19 @@ const HireUs = () => {
                     <h4 className="font-semibold text-blue-900 mb-2">What happens next?</h4>
                     <ul className="text-sm text-blue-800 space-y-1">
                       <li>• We'll review your project details within 24 hours</li>
-                      <li>• Schedule a consultation call to discuss your needs</li>
-                      <li>• Provide a detailed proposal with timeline and pricing</li>
-                      <li>• Start working on your project once approved</li>
+                      <li>• Schedule a detailed consultation call to understand your vision</li>
+                      <li>• Provide a comprehensive proposal with timeline and transparent pricing</li>
+                      <li>• Begin development once the proposal is approved</li>
                     </ul>
                   </div>
 
-                  <Button type="submit" className="w-full bg-primary-600 hover:bg-primary-700" size="lg">
-                    Submit Project Request
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-primary-600 hover:bg-primary-700" 
+                    size="lg"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Submit Project Request'}
                   </Button>
                 </form>
               </CardContent>
