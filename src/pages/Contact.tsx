@@ -52,9 +52,9 @@ const Contact = () => {
       <section className="pt-24 pb-20 bg-gradient-to-br from-primary-600 to-primary-800">
         <div className="container mx-auto px-4">
           <div className="text-center text-white max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-5xl font-bold font-poppins mb-6">Contact Us</h1>
+            <h1 className="text-5xl font-bold font-poppins mb-6">Contact Our Freelance Team</h1>
             <p className="text-xl text-primary-100 leading-relaxed">
-              Ready to start your project? Get in touch with us today and let's discuss how we can help bring your vision to life.
+              Ready to start your project? Get in touch with skilled freelancers in Hyderabad and get a free quote today.
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ const Contact = () => {
               <div className="animate-slide-in-left">
                 <h2 className="text-3xl font-bold font-poppins text-gray-900 mb-6">Get In Touch</h2>
                 <p className="text-lg text-gray-600 mb-8">
-                  We'd love to hear from you. Choose the best way to reach us and we'll respond promptly.
+                  Connect with Hyderabad's top freelancers. We're here to help you with all your digital needs.
                 </p>
               </div>
 
@@ -84,7 +84,7 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600 mb-2">Send us an email anytime</p>
-                    <p className="text-primary-600 font-semibold">hello@deneb.com</p>
+                    <p className="text-primary-600 font-semibold">hello@hydfreelance.com</p>
                   </CardContent>
                 </Card>
 
@@ -98,8 +98,8 @@ const Contact = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 mb-2">Mon-Fri 9am-6pm EST</p>
-                    <p className="text-primary-600 font-semibold">+1 (555) 123-4567</p>
+                    <p className="text-gray-600 mb-2">Mon-Sat 9am-7pm IST</p>
+                    <p className="text-primary-600 font-semibold">+91 98765 43210</p>
                   </CardContent>
                 </Card>
 
@@ -113,8 +113,8 @@ const Contact = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 mb-2">Come say hello</p>
-                    <p className="text-primary-600 font-semibold">123 Business Ave<br />New York, NY 10001</p>
+                    <p className="text-gray-600 mb-2">Meet us in person</p>
+                    <p className="text-primary-600 font-semibold">HITEC City, Hyderabad<br />Telangana 500081</p>
                   </CardContent>
                 </Card>
               </div>
@@ -140,7 +140,7 @@ const Contact = () => {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="John Doe"
+                          placeholder="Rajesh Kumar"
                         />
                       </div>
                       <div>
@@ -154,7 +154,7 @@ const Contact = () => {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="john@example.com"
+                          placeholder="rajesh@example.com"
                         />
                       </div>
                     </div>
@@ -170,7 +170,7 @@ const Contact = () => {
                           type="tel"
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="+1 (555) 123-4567"
+                          placeholder="+91 98765 43210"
                         />
                       </div>
                       <div>
@@ -202,10 +202,11 @@ const Contact = () => {
                         >
                           <option value="">Select a service</option>
                           <option value="web-development">Web Development</option>
-                          <option value="mobile-development">Mobile Development</option>
+                          <option value="mobile-development">Mobile App Development</option>
                           <option value="ui-ux-design">UI/UX Design</option>
                           <option value="digital-marketing">Digital Marketing</option>
-                          <option value="other">Other</option>
+                          <option value="wordpress">WordPress Development</option>
+                          <option value="ecommerce">E-commerce Solutions</option>
                         </select>
                       </div>
                       <div>
@@ -220,10 +221,10 @@ const Contact = () => {
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-600"
                         >
                           <option value="">Select budget range</option>
-                          <option value="under-5k">Under $5,000</option>
-                          <option value="5k-15k">$5,000 - $15,000</option>
-                          <option value="15k-50k">$15,000 - $50,000</option>
-                          <option value="50k-plus">$50,000+</option>
+                          <option value="under-25k">Under ₹25,000</option>
+                          <option value="25k-50k">₹25,000 - ₹50,000</option>
+                          <option value="50k-1l">₹50,000 - ₹1,00,000</option>
+                          <option value="1l-plus">₹1,00,000+</option>
                         </select>
                       </div>
                     </div>
@@ -239,7 +240,7 @@ const Contact = () => {
                         rows={6}
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
+                        placeholder="Tell us about your project requirements, timeline, and any specific needs..."
                       />
                     </div>
 

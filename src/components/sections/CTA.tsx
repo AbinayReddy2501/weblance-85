@@ -17,28 +17,28 @@ const CTA = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold font-poppins text-white mb-6">
-            Ready to Transform Your
-            <span className="block text-accent-500">Digital Presence?</span>
+            Ready to Start Your Project with
+            <span className="block text-accent-500">Hyderabad's Best Freelancers?</span>
           </h2>
           <p className="text-xl text-primary-100 mb-8 leading-relaxed">
-            Let's work together to create something amazing. Get in touch today and let's discuss how we can help your business grow and succeed in the digital world.
+            Get your project done by skilled freelancers at affordable rates. Quality work guaranteed with on-time delivery.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-accent-500 hover:bg-accent-600 text-white font-semibold">
-              <Link to="/contact">
-                Start Your Project
+              <Link to="/hire-us">
+                Hire Freelancers Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary-700">
-              <Link to="/portfolio">View Our Work</Link>
+              <Link to="/portfolio">View Our Portfolio</Link>
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-16 border-t border-primary-500">
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent-500 mb-2">48h</div>
+              <div className="text-3xl font-bold text-accent-500 mb-2">24h</div>
               <div className="text-primary-200">Quick Response Time</div>
             </div>
             <div className="text-center">
@@ -46,8 +46,8 @@ const CTA = () => {
               <div className="text-primary-200">Client Satisfaction</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent-500 mb-2">24/7</div>
-              <div className="text-primary-200">Support Available</div>
+              <div className="text-3xl font-bold text-accent-500 mb-2">₹500</div>
+              <div className="text-primary-200">Starting Price</div>
             </div>
           </div>
         </div>

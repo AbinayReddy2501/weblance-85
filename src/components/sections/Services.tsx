@@ -7,38 +7,44 @@ const Services = () => {
     {
       icon: '💻',
       title: 'Web Development',
-      description: 'Custom websites and web applications built with modern technologies for optimal performance.',
-      features: ['Responsive Design', 'Fast Loading', 'SEO Optimized', 'Secure']
+      description: 'Custom websites and web applications using latest technologies like React, Angular, and Node.js.',
+      features: ['Responsive Design', 'E-commerce Sites', 'CMS Development', 'API Integration'],
+      price: '₹15,000 - ₹1,50,000'
     },
     {
       icon: '📱',
-      title: 'Mobile Apps',
-      description: 'Native and cross-platform mobile applications for iOS and Android platforms.',
-      features: ['iOS & Android', 'Cross-platform', 'User-friendly', 'Scalable']
+      title: 'Mobile App Development',
+      description: 'Native and hybrid mobile applications for Android and iOS platforms.',
+      features: ['Android Apps', 'iOS Apps', 'React Native', 'Flutter Apps'],
+      price: '₹25,000 - ₹2,50,000'
     },
     {
       icon: '🎨',
       title: 'UI/UX Design',
-      description: 'Beautiful and intuitive user interfaces that provide excellent user experiences.',
-      features: ['User Research', 'Wireframing', 'Prototyping', 'Testing']
+      description: 'Beautiful and user-friendly designs that convert visitors into customers.',
+      features: ['Web Design', 'App Design', 'Logo Design', 'Brand Identity'],
+      price: '₹8,000 - ₹80,000'
     },
     {
-      icon: '🚀',
+      icon: '📊',
       title: 'Digital Marketing',
-      description: 'Comprehensive digital marketing strategies to boost your online presence and growth.',
-      features: ['SEO', 'Social Media', 'Content Marketing', 'Analytics']
+      description: 'Complete digital marketing solutions to grow your business online.',
+      features: ['SEO Services', 'Social Media', 'Google Ads', 'Content Marketing'],
+      price: '₹10,000 - ₹50,000/month'
     },
     {
       icon: '⚡',
-      title: 'Performance Optimization',
-      description: 'Optimize your digital assets for maximum speed, efficiency, and user satisfaction.',
-      features: ['Speed Optimization', 'Code Review', 'Performance Monitoring', 'Scalability']
+      title: 'WordPress Development',
+      description: 'Custom WordPress websites and plugin development for businesses.',
+      features: ['Custom Themes', 'Plugin Development', 'WooCommerce', 'Site Optimization'],
+      price: '₹5,000 - ₹75,000'
     },
     {
-      icon: '🛡️',
-      title: 'Security Solutions',
-      description: 'Comprehensive security measures to protect your digital assets and user data.',
-      features: ['Data Protection', 'SSL Certificates', 'Security Audits', 'Compliance']
+      icon: '🛒',
+      title: 'E-commerce Solutions',
+      description: 'Complete online store setup with payment gateway integration.',
+      features: ['Shopify Stores', 'WooCommerce', 'Payment Gateway', 'Inventory Management'],
+      price: '₹20,000 - ₹2,00,000'
     }
   ];
 
@@ -47,10 +53,10 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl font-bold font-poppins text-gray-900 mb-4">
-            Our Services
+            Freelance Services in Hyderabad
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We offer comprehensive digital solutions to help your business succeed in the modern digital landscape.
+            Professional freelance services at competitive rates. Get quality work delivered on time by experienced professionals.
           </p>
         </div>
 
@@ -61,6 +67,7 @@ const Services = () => {
                 <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
+                <div className="text-primary-600 font-semibold mb-4">{service.price}</div>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm text-gray-500">

@@ -35,7 +35,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold font-poppins text-primary-600">
-            Deneb
+            HydFreelance
           </Link>
 
           {/* Desktop Navigation */}
@@ -58,7 +58,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Button asChild className="bg-primary-600 hover:bg-primary-700 text-white">
-              <Link to="/hire-us">Hire Us</Link>
+              <Link to="/hire-us">Hire Now</Link>
             </Button>
           </div>
 
@@ -92,7 +92,7 @@ const Header = () => {
                 </Link>
               ))}
               <Button asChild className="bg-primary-600 hover:bg-primary-700 text-white w-full">
-                <Link to="/hire-us" onClick={() => setIsMenuOpen(false)}>Hire Us</Link>
+                <Link to="/hire-us" onClick={() => setIsMenuOpen(false)}>Hire Now</Link>
               </Button>
             </nav>
           </div>
